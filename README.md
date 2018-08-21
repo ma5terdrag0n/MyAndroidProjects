@@ -9,7 +9,7 @@ Very basic calculator which can do following four operations:
   <li>Multiplication</li>
 </ol>
 
-
+<h3> Extra features: </h3>
 User can erase the content using <b>C</b> button provided in the app.<br>
 User can use the latest result to perform further calculations.
 
@@ -17,4 +17,4 @@ User can use the latest result to perform further calculations.
 Only integer calculations are possible in this app.
 
 <h3> Screenshot: </h3>
-<img src = "screenshots/calculator.jpeg">
+<img src = "screenshots/calculator.jpeg" width="300px" height="500px">
