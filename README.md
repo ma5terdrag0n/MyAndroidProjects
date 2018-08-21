@@ -16,6 +16,6 @@ User can use the latest result to perform further calculations.
 <h3> Limitations: </h3>
 Only integer calculations are possible in this app.
 
-<h3> Screenshot: </h3>
-<img src = "screenshots/calculator.jpeg" width="300px" height="500px">
-<img src = "screenshots/calculator2.jpeg" width="300px" height="500px">
+<h3> Screenshots: </h3>
+<img align="left" src = "screenshots/calculator.jpeg" width="300px" height="500px">
+<img align = "left" src = "screenshots/calculator2.jpeg" width="300px" height="500px">
