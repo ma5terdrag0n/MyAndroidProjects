@@ -18,3 +18,4 @@ Only integer calculations are possible in this app.
 
 <h3> Screenshot: </h3>
 <img src = "screenshots/calculator.jpeg" width="300px" height="500px">
+<img src = "screenshots/calculator2.jpeg" width="300px" height="500px">
