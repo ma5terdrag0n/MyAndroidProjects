@@ -1,4 +1,4 @@
-# MyAndroidProjects
+# My Android Projects:
 
 ## Calculator App:
 Very basic calculator which can do following four operations:
