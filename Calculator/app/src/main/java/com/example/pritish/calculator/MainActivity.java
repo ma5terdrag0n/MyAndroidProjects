@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button one, two, three, four, five, six, seven,eight,nine, zero, equal, plus, minus, divide, c, mul;
     private TextView input, output;
+    private boolean last;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         input = (TextView) findViewById(R.id.input);
         output = (TextView) findViewById(R.id.output);
+        last = false;
 
         one = (Button) findViewById(R.id.one);
         one.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "1";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "2";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "3";
                 input.setText(s);
+                last = false;
 
             }
         });
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "4";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -70,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "5";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -80,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "6";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -90,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "7";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -100,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "8";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -110,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "9";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -129,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = String.valueOf(input.getText());
                 s = s + "0";
                 input.setText(s);
+                last = false;
             }
         });
 
@@ -136,9 +148,11 @@ public class MainActivity extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(last)return;
                 String s = String.valueOf(input.getText());
                 s = s + " + ";
                 input.setText(s);
+                last = true;
             }
         });
 
@@ -146,9 +160,11 @@ public class MainActivity extends AppCompatActivity {
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(last)return;
                 String s = String.valueOf(input.getText());
                 s = s + " - ";
                 input.setText(s);
+                last = true;
             }
         });
 
@@ -156,9 +172,11 @@ public class MainActivity extends AppCompatActivity {
         mul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(last)return;
                 String s = String.valueOf(input.getText());
                 s = s + " * ";
                 input.setText(s);
+                last = true;
             }
         });
 
@@ -166,9 +184,11 @@ public class MainActivity extends AppCompatActivity {
         divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(last)return;
                 String s = String.valueOf(input.getText());
                 s = s + " / ";
                 input.setText(s);
+                last = true;
             }
         });
 
@@ -190,10 +210,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     String computeExpression(String s){
-        String ret = "Invalid Input!";
-        if(validate(s)){
-            ret = compute(s);
-        }
+        String ret = compute(s);
         return ret;
     }
 
@@ -259,27 +276,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return Integer.toString(num1);
-    }
-
-    Boolean validate(String s){
-        int last = 0;
-        int op = 0;
-        for(int i = 0 ; i < s.length() ; i++){
-            if(s.charAt(i) == ' ') {
-                i++;
-                if(i == s.length())return false;
-                if (s.charAt(i) == '*' || s.charAt(i) == '-' || s.charAt(i) == '/' || s.charAt(i) == '+'){
-                    op++;
-                    if (last == 1){
-                        return false;
-                    }
-                    last = 1;
-                }else{
-                    last = 0;
-                }
-            }
-        }
-        if(op == 0)return false;
-        return true;
     }
 }
